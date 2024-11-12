@@ -183,14 +183,14 @@ def get_pm25(aqicn_url: str, country: str, city: str, street: str, day: datetime
 
     return aq_today_df
 
-def plot_air_quality_forecast_merge(city: str, street: str, df: pd.DataFrame, df_1: pd.DataFrame, file_path: str, hindcast=False):
+def plot_air_quality_forecast_merge(city: str, street: str, df: pd.DataFrame, df_3: pd.DataFrame, file_path: str, hindcast=False):
     fig, ax = plt.subplots(figsize=(10, 6))
 
     day = pd.to_datetime(df['date']).dt.date
-    day_1 = pd.to_datetime(df_1['date']).dt.date
+    day_3 = pd.to_datetime(df_3['date']).dt.date
     # Plot each column separately in matplotlib
-    ax.plot(day, df['predicted_pm25'], label='Predicted PM2.5', color='red', linewidth=2, marker='o', markersize=5, markerfacecolor='blue')
-    ax.plot(day_1, df_1['predicted_pm25'], label='Predicted PM2.5 v1', color='blue', linewidth=2, marker='o', markersize=5, markerfacecolor='blue')
+    ax.plot(day, df['predicted_pm25'], label='Predicted PM2.5 v1', color='red', linewidth=2, marker='o', markersize=5, markerfacecolor='blue')
+    ax.plot(day_3, df_3['predicted_pm25'], label='Predicted PM2.5 v3', color='blue', linewidth=2, marker='o', markersize=5, markerfacecolor='blue')
 
     # Set the y-axis to a logarithmic scale
     ax.set_yscale('log')
