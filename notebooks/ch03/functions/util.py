@@ -222,7 +222,7 @@ def plot_air_quality_forecast_merge(city: str, street: str, df: pd.DataFrame, df
 
     if hindcast == True:
         ax.set_xlim([datetime.today() - timedelta(weeks=1), datetime.today() + timedelta(weeks=1)])
-        ax.plot(day, df['pm25'], label='Actual PM2.5', color='black', linewidth=2, marker='^', markersize=5, markerfacecolor='grey')
+        ax.plot(day_3, df_3['pm25'], label='Actual PM2.5', color='black', linewidth=2, marker='^', markersize=5, markerfacecolor='grey')
         legend2 = ax.legend(loc='upper left', fontsize='x-small')
         ax.add_artist(legend1)
 
